@@ -1,30 +1,25 @@
 #include "../std_lib_facilities.h"
-#include <numeric>
 
 int main()
 {
-	vector<double> distances;
-
+	vector<double> temps;
 	for (double temp; cin >> temp;)
-	{
-		distances.push_back(temp);
-	}
+		temps.push_back(temp);
 
-	
-
-	cout << "Sum of the total distance is: " << accumulate(distances.begin(), distances.end(), 0.0) << '\n';
-	
-	double maxi = *max_element(distances.begin(), distances.end());
-	double mini = *min_element(distances.begin(), distances.end());
-	cout << "Maximum values is: " << maxi << '\n'
-		<<"Minimum value is: "<<mini<<'\n';
-
-	sort(distances);
-	for (double i : distances)
+	sort(temps);
+	for (double i : temps)
 		cout << i << '\t';
+	cout << '\n';
 
-	if (distances.size() % 2 == 0)
-		cout << "Mean distance is: " << (distances[distances.size() / 2] + distances[distances.size() / 2 - 1]) / 2 << '\n';
+	int size_of_vector = temps.size();
+
+	cout << "size of vector: " << size_of_vector  << '\n';
+
+	cout << "middle of vector " << temps.size() / 2 << '\n';
+
+	if (size_of_vector % 2 == 0)
+		cout << "median temperature: " << (temps[temps.size() / 2] + temps[temps.size() / 2 - 1]) / 2 << '\n';
 	else
-		cout << "Mean distance is: " << distances[distances.size() / 2] << '\n';
+		cout << "Median temperature: " << temps[temps.size() / 2] << '\n';
+
 }
